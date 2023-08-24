@@ -18,6 +18,7 @@ export const Todo = () => {
     },
   ];
 
+  // Todoリストのstate
   const [todos, setTodos] = useState(todosList);
 
   const deleteTodo = (id) => {
@@ -26,10 +27,14 @@ export const Todo = () => {
     setTodos(newTodos);
   };
 
+  const createTodo = (todo) => {
+    setTodos([...todos, todo]);
+  };
+
   return (
     <>
       <List todos={todos} deleteTodo={deleteTodo} />
-      <Form />
+      <Form createTodo={createTodo} />
     </>
   );
 };
